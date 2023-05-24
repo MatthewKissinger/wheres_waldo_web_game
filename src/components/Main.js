@@ -4,9 +4,10 @@ import "../styles/Main.css"
 
 export default function Main() {
     return (
-        <div>
-            Main content here
-            <img class="game-image" src={hoth_battle} alt='hoth battle scene'></img>
+        <div className='main'>
+            <div className='image__container'>
+                <img class="image" src={hoth_battle} alt='hoth battle scene'></img>
+            </div>  
         </div>
     )
 }

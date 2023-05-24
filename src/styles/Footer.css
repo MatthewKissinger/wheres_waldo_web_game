@@ -1,0 +1,12 @@
+.footer {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #FFE81F;
+    background-color: rgb(44, 44, 44);
+    letter-spacing: 3px;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
