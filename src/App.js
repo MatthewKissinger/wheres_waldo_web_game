@@ -22,19 +22,28 @@ function App() {
     // store the ratios in a database
 
     // get imageWidth
-    // console.log(e.target.clientWidth);
+    let imageWidth = e.target.clientWidth;
     
     // get imageHeight
-    // console.log(e.target.clientHeight);
+    let imageHeight = e.target.clientHeight;
 
     // get xCoordinate of mouseclick inside of the image
-    let xCoordinate =  e.target.offsetLeft;
-    console.log(xCoordinate);
+    let xOffSet =  e.target.offsetLeft;
+    let xCoordinate = e.pageX - xOffSet;
+    console.log(`X: ${xCoordinate}`);
+
+    console.log(`Image Width: ${imageWidth}`);
+    let xRatio = xCoordinate / imageWidth;
+    console.log(`X Ratio: ${xRatio.toFixed(3)}`);
 
     // get xCoordinate of mouseclick inside of the image
-    let yCoordinate = e.target.offsetTop;
-    console.log(yCoordinate);
-
+    let yOffSet = e.target.offsetTop;
+    let yCoordinate = e.pageY - yOffSet;
+    console.log(`Y: ${yCoordinate}`);
+    
+    console.log(`Image Height: ${imageHeight}`);
+    let yRatio = yCoordinate / imageHeight;
+    console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
   }
 
 
