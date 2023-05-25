@@ -17,12 +17,24 @@ function App() {
 
   // methods
   function grabCoordinate(e) {
+    // find relative xCoordinate and yCoordinates based off of 
+    // xCoordinate / imageWidth & yCoordinate / imageHeight
+    // store the ratios in a database
 
-    let xOffSet = e.target.offsetLeft;
-    let yOffSet = e.target.offsetTop;
+    // get imageWidth
+    // console.log(e.target.clientWidth);
+    
+    // get imageHeight
+    // console.log(e.target.clientHeight);
 
-    console.log(`X: ${e.pageX - xOffSet}`);
-    console.log(`Y: ${e.pageY - yOffSet}`);
+    // get xCoordinate of mouseclick inside of the image
+    let xCoordinate =  e.target.offsetLeft;
+    console.log(xCoordinate);
+
+    // get xCoordinate of mouseclick inside of the image
+    let yCoordinate = e.target.offsetTop;
+    console.log(yCoordinate);
+
   }
 
 
