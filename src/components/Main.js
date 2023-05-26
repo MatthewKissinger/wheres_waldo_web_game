@@ -3,7 +3,7 @@ import hoth_battle from "../assets/images/wheres_wookie_ryan_hill.jpeg"
 import "../styles/Main.css"
 
 export default function Main(props) {
-    const { grabCoordinate } = props;
+    const { grabCoordinateRatio, showTargetingBox } = props;
 
     return (
         <div className='main'>
@@ -11,7 +11,8 @@ export default function Main(props) {
                 <img className="image" 
                     src={hoth_battle} 
                     alt='hoth battle scene'
-                    onMouseDown={grabCoordinate}
+                    // onMouseDown={grabCoordinateRatio}
+                    onClick={showTargetingBox}
                 ></img>
             </div>  
         </div>
