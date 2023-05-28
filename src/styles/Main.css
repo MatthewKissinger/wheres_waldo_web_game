@@ -6,6 +6,7 @@
 }
 
 .image__container {
+    position: relative;
     width: 80%;
     margin: 3rem;
     border-radius: 12px;
@@ -17,4 +18,14 @@
     width: 100%;
     overflow: hidden;
     display: block;
+}
+
+.targetingDiv {
+    position: absolute;
+    border: 2px solid red;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    top: 0;
+    left: 0;
 }
