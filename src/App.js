@@ -20,7 +20,8 @@ function App() {
 
   // state
 
-  const [ targetLocation, setTargetLocation] = useState(['50px', '50px']);
+  // first array value = top, second = left, third = visibility
+  const [ targetLocation, setTargetLocation] = useState(['50px', '50px', 'hidden']);
 
   // methods
   function grabCoordinateRatio(e) {
@@ -47,14 +48,17 @@ function App() {
 
   function showTargetingBox(e) {
     // console.log(e.target);
-    let xCoordinate = e.pageX - e.target.offsetLeft;
-    let yCoordinate = e.pageY - e.target.offsetTop;
+    let offset = e.target.getBoundingClientRect();
+
+    let xCoordinate = e.pageX - offset.left;
+
+    let yCoordinate = e.pageY - offset.top;
 
     console.log(xCoordinate);
     console.log(yCoordinate);
 
-
     // update the state of targeting box on click -> conditionally render it in Main.js component
+    setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
   }
 
   return (

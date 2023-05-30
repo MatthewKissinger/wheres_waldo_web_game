@@ -7,16 +7,18 @@ export default function Main(props) {
 
     return (
         <div className='main'>
-            <div className='image__container'>
+            <div className='image__container'
+                onClick={showTargetingBox}
+            >
                 <img className="image" 
                     src={hoth_battle} 
                     alt='hoth battle scene'
                     onMouseDown={grabCoordinateRatio}
-                    onClick={showTargetingBox}
                 ></img>
                 <div className='targetingDiv'
                     style={{'top': `${targetLocation[0]}`, 
-                            'left': `${targetLocation[1]}`}}
+                            'left': `${targetLocation[1]}`,
+                            'visibility': `${targetLocation[2]}`}}
                 ></div>
             </div>  
         </div>
