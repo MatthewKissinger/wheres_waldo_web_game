@@ -34,7 +34,7 @@ function App() {
     let xOffSet =  e.target.offsetLeft;
     let xCoordinate = e.pageX - xOffSet;
     let xRatio = xCoordinate / imageWidth;
-    // console.log(`X Ratio: ${xRatio.toFixed(3)}`);
+    console.log(`X Ratio: ${xRatio.toFixed(3)}`);
 
     // get imageHeight
     let imageHeight = e.target.clientHeight;
@@ -43,19 +43,20 @@ function App() {
     let yOffSet = e.target.offsetTop;
     let yCoordinate = e.pageY - yOffSet;
     let yRatio = yCoordinate / imageHeight;
-    // console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
+    console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
   }
 
   function showTargetingBox(e) {
     // console.log(e.target);
     let offset = e.target.getBoundingClientRect();
 
-    let xCoordinate = e.pageX - offset.left;
+    let xCoordinate = (e.pageX - offset.left) - 40;
 
-    let yCoordinate = e.pageY - offset.top;
+    let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
 
     console.log(xCoordinate);
     console.log(yCoordinate);
+    console.log(window.scrollY);
 
     // update the state of targeting box on click -> conditionally render it in Main.js component
     setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
