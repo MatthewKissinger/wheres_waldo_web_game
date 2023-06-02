@@ -22,7 +22,7 @@
 
 .targetingDiv {
     position: absolute;
-    border: 2px solid red;
+    border: 3px dashed #FFE81F;
     border-radius: 50%;
     height: 80px;
     width: 80px;

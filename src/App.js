@@ -7,12 +7,10 @@ import Footer from './components/Footer';
 // store all of the state and functions inside of App.js
 
 // TODO
+// 1) create a dropdown menu that displays to the right of the selection circle after the user makes a selection by clicking on the image
+//  -- this dropdown is to include portraits of the characters that are clickable as an option
 
-// 1) find the coordinates of 3 characters in the image --DONE
-//  -- create a grab coordinate function for the image --DONE
-//  -- console.log the coordinate clicked 
-// 2) save these coordinates in a firestore database
-// 3) when the user clicks on the image a selection circle should appear -- that circle will grab an area of pixels from the image 
+// 2) save the ratios of pixel location for each character in a firestore database using the grabCoordinate function
 
 // store image width and height in state -- update every time the window is resized
 
@@ -20,6 +18,7 @@ function App() {
 
   // state
 
+  // the user target circle location
   // first array value = top, second = left, third = visibility
   const [ targetLocation, setTargetLocation] = useState(['50px', '50px', 'hidden']);
 
@@ -53,10 +52,6 @@ function App() {
     let xCoordinate = (e.pageX - offset.left) - 40;
 
     let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
-
-    console.log(xCoordinate);
-    console.log(yCoordinate);
-    console.log(window.scrollY);
 
     // update the state of targeting box on click -> conditionally render it in Main.js component
     setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);

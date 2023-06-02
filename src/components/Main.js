@@ -20,6 +20,11 @@ export default function Main(props) {
                             'left': `${targetLocation[1]}`,
                             'visibility': `${targetLocation[2]}`}}
                 ></div>
+                <div className='dropdown'>
+                    <li className='dropdown_char1'>Chewbacca</li>
+                    <li className='dropdown_char2'>Boba Fett</li>
+                    <li className='dropdown_char3'>Greedo</li>
+                </div>
             </div>  
         </div>
     )
