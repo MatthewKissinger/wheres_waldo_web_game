@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -7,8 +7,7 @@ import Footer from './components/Footer';
 // store all of the state and functions inside of App.js
 
 // TODO
-// 1) create a dropdown menu that displays to the right of the selection circle after the user makes a selection by clicking on the image
-//  -- this dropdown is to include portraits of the characters that are clickable as an option-- DONE
+// 1) get the ratio for the width of the selection circle to stay the same looking size even with the user zoomed in or out on the window
 
 // 2) make the image unclickable after a selection on the image has been made.  After the user selects an option from the dropdown menu make the image clickable again until the game is completed
 
@@ -18,61 +17,91 @@ import Footer from './components/Footer';
 
 function App() {
 
-  // state
+  // STATE // 
 
   // image styling -- value is for the pointer-events styling property
   const [ imageStyle, setImageStyle ] = useState('auto');
 
-  // the user target circle location
-  // first array value = top, second = left, third = visibility
+  const [ imageDimensions, setImageDimensions ] = useState();
+
+  // the user target circle location -- first array value = top, second = left, third = visibility
   const [ targetLocation, setTargetLocation] = useState(['50px', '50px', 'hidden']);
 
   // the selection dropdown box after a user clicks on the image
   const [ dropdownLocation, setDropdownLocation ] = useState(['50px', '50px', 'hidden']);
 
+  // USE EFFECT //
+
+  // grab the initial image dimensions and update the imageDimensions state
+  useEffect(() => {
+    let img = document.querySelector('.image');
+  
+    let imgHeight = img.clientHeight;
+    let imgWidth = img.clientWidth;
+
+    setImageDimensions([imgHeight, imgWidth]);
+
+  }, []);
+
+  // grab the image dimensions everytime the user zooms in or out on the window
+  useEffect(() => {
+
+    function handleResize() {
+      let img = document.querySelector('.image');
+  
+      let imgHeight = img.clientHeight;
+      let imgWidth = img.clientWidth;
+    
+      console.log(imgHeight, imgWidth);
+
+      setImageDimensions([imgHeight, imgWidth]);
+    }
+
+    window.addEventListener('resize', handleResize);
+    
+  }, []); 
+
   // methods
   function grabCoordinateRatio(e) {
-    // ratios grabbed for characters to be stored for reference from user clicks
 
     // get the target's dimensions
     let offset = e.target.getBoundingClientRect();
 
-    // get imageWidth
-    let imageWidth = e.target.clientWidth;
+    // take imageDimensions from state
+    let imageHeight = imageDimensions[0];
+    let imageWidth = imageDimensions[1];
 
     // get xCoordinate of mouseclick inside of the image
     let xOffSet =  offset.left;
     let xCoordinate = e.pageX - xOffSet;
     let xRatio = xCoordinate / imageWidth;
-    // console.log(`X Ratio: ${xRatio.toFixed(3)}`);
-
-    // get imageHeight
-    let imageHeight = e.target.clientHeight;
-
+    console.log(`X Ratio: ${xRatio.toFixed(3)}`);
+    
     // get xCoordinate of mouseclick inside of the image
     let yOffSet = offset.top;
     let yCoordinate = e.pageY - yOffSet;
     let yRatio = yCoordinate / imageHeight;
-    // console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
+    console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
   }
 
+  // commented out for now
   function showTargetingBox(e) {
-    let offset = e.target.getBoundingClientRect();
+    // let offset = e.target.getBoundingClientRect();
 
-    let xCoordinate = (e.pageX - offset.left) - 40;
+    // let xCoordinate = (e.pageX - offset.left) - 40;
 
-    let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
+    // let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
 
-    // update the state of targeting box on click
-    setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
+    // // update the state of targeting box on click
+    // setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
 
-    let dropDownXCoordinate = xCoordinate + 100;
+    // let dropDownXCoordinate = xCoordinate + 100;
 
-    // the state of the dropdownLocation on click
-    setDropdownLocation([`${yCoordinate.toString()}px`, `${dropDownXCoordinate.toString()}px`, 'visible'])
+    // // the state of the dropdownLocation on click
+    // setDropdownLocation([`${yCoordinate.toString()}px`, `${dropDownXCoordinate.toString()}px`, 'visible'])
 
-    // the state of the pointer-events on the image
-    setImageStyle('none');
+    // // the state of the pointer-events on the image
+    // setImageStyle('none');
   }
 
   function selectDropdownOption(e) {
