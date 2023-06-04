@@ -6,7 +6,7 @@ import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 
 export default function Main(props) {
-    const { grabCoordinateRatio, showTargetingBox, selectDropdownOption, imageStyle, targetLocation, dropdownLocation } = props;
+    const { grabCoordinateRatio, showTargetingBox, targetDivSize, selectDropdownOption, imageStyle, targetLocation, dropdownLocation } = props;
 
     return (
         <div className='main'>
@@ -22,7 +22,9 @@ export default function Main(props) {
                 <div className='targetingDiv'
                     style={{'top': `${targetLocation[0]}`, 
                             'left': `${targetLocation[1]}`,
-                            'visibility': `${targetLocation[2]}`}}
+                            'visibility': `${targetLocation[2]}`,
+                            'height': `${targetDivSize}`,
+                            'width': `${targetDivSize}`}}
                 ></div>
                 <div className='dropdown'
                     style={{'top': `${dropdownLocation[0]}`, 

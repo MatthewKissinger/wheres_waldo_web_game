@@ -27,8 +27,14 @@ function App() {
   // the user target circle location -- first array value = top, second = left, third = visibility
   const [ targetLocation, setTargetLocation] = useState(['50px', '50px', 'hidden']);
 
+  // size of the targetingDiv, changed when user zooms in or out
+  const [ targetDivSize, setTargetDivSize ] = useState('80px');
+
   // the selection dropdown box after a user clicks on the image
   const [ dropdownLocation, setDropdownLocation ] = useState(['50px', '50px', 'hidden']);
+
+  // width of the dropdown div
+  const [ dropdownWidth, setDropdownWidth ] = useState('200px');
 
   // USE EFFECT //
 
@@ -55,6 +61,7 @@ function App() {
       console.log(imgHeight, imgWidth);
 
       setImageDimensions([imgHeight, imgWidth]);
+      setTargetDivSize([`${Math.round((imgWidth * .0394)).toString()}px`])
     }
 
     window.addEventListener('resize', handleResize);
@@ -86,22 +93,22 @@ function App() {
 
   // commented out for now
   function showTargetingBox(e) {
-    // let offset = e.target.getBoundingClientRect();
+    let offset = e.target.getBoundingClientRect();
 
-    // let xCoordinate = (e.pageX - offset.left) - 40;
+    let xCoordinate = (e.pageX - offset.left) - 40;
 
-    // let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
+    let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
 
-    // // update the state of targeting box on click
-    // setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
+    // update the state of targeting box on click
+    setTargetLocation([`${yCoordinate.toString()}px`, `${xCoordinate.toString()}px`, 'visible']);
 
-    // let dropDownXCoordinate = xCoordinate + 100;
+    let dropDownXCoordinate = xCoordinate + 100;
 
-    // // the state of the dropdownLocation on click
-    // setDropdownLocation([`${yCoordinate.toString()}px`, `${dropDownXCoordinate.toString()}px`, 'visible'])
+    // the state of the dropdownLocation on click
+    setDropdownLocation([`${yCoordinate.toString()}px`, `${dropDownXCoordinate.toString()}px`, 'visible'])
 
-    // // the state of the pointer-events on the image
-    // setImageStyle('none');
+    // the state of the pointer-events on the image
+    setImageStyle('none');
   }
 
   function selectDropdownOption(e) {
@@ -117,6 +124,7 @@ function App() {
         selectDropdownOption={selectDropdownOption}
         imageStyle={imageStyle}
         targetLocation={targetLocation}
+        targetDivSize={targetDivSize}
         dropdownLocation={dropdownLocation}
       ></Main>
       <Footer></Footer>
