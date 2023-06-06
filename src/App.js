@@ -5,41 +5,39 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 // TODO
-// 1) research best method for keeping components the same size regardless of window size and zoom percentage
-// changing sizes for fonts and targetingDiv to vh percentages
-
-// 2) research a way to get consistent coordinates on the screen with the user changing window size and zoom percentage
+// make the image an absolute width of 1400px
+// then take the ratio of the coordinate clicked divided by the width 
 
 function App() {
 
   // STATE // 
-  
-  // global variables
-  const winHeight = window.innerHeight;
-  const winWidth = window.innerWidth;
+
 
   // methods
   function grabCoordinateRatio(e) {
-    // console.log(e.target);
+    // console.log(e.nativeEvent);
 
-    console.log(winHeight);
-    console.log(winWidth);
+    let img = e.target.getBoundingClientRect();
+    let imgWidth = img.width;
+    let imgHeight = img.height;
+
+    let x = e.nativeEvent.offsetX;
+    let y = e.nativeEvent.offsetY;
+    console.log('img width: ' + imgWidth);
+    console.log('img height: ' + imgHeight);
+
+    console.log('x coordinate clicked: ' + x);
+    console.log('y coordinate clicked: ' + y);
+
   }
 
   // commented out for now
   function showTargetingBox(e) {
-    // let offset = e.target.getBoundingClientRect();
-
-    // let xCoordinate = (e.pageX - offset.left) - 40;
-
-    // let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
-
-    // console.log(xCoordinate);
-    // console.log(yCoordinate);  
+    // console.log(e.target);
   }
 
   function selectDropdownOption(e) {
-    console.log(e.target);
+    // console.log(e.target);
   }
 
   return (

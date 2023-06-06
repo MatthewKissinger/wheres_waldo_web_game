@@ -7,14 +7,10 @@
 
 .image__container {
     position: relative;
-    width: 80%;
-    margin: 3vw;
-    border-radius: 1vw;
-    border: .2vw solid black;
+    min-width: 1200px;
 }
 
 .image {
-    border-radius: .75vw;
     width: 100%;
     overflow: hidden;
     display: block;
