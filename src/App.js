@@ -13,37 +13,29 @@ import Footer from './components/Footer';
 function App() {
 
   // STATE // 
+  
+  // global variables
+  const winHeight = window.innerHeight;
+  const winWidth = window.innerWidth;
 
   // methods
   function grabCoordinateRatio(e) {
+    // console.log(e.target);
 
-    // get the target's dimensions
-    // let offset = e.target.getBoundingClientRect();
-
-    // // get xCoordinate of mouseclick inside of the image
-    // let xOffSet =  offset.left;
-    // let xCoordinate = e.pageX - xOffSet;
-    // let xRatio = xCoordinate / imageWidth;
-    // console.log(`X Ratio: ${xRatio.toFixed(3)}`);
-    
-    // // get xCoordinate of mouseclick inside of the image
-    // let yOffSet = offset.top;
-    // let yCoordinate = e.pageY - yOffSet;
-    // let yRatio = yCoordinate / imageHeight;
-    // console.log(`Y Ratio: ${yRatio.toFixed(3)}`);
+    console.log(winHeight);
+    console.log(winWidth);
   }
 
   // commented out for now
   function showTargetingBox(e) {
-    let offset = e.target.getBoundingClientRect();
+    // let offset = e.target.getBoundingClientRect();
 
-    let xCoordinate = (e.pageX - offset.left) - 40;
+    // let xCoordinate = (e.pageX - offset.left) - 40;
 
-    let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
+    // let yCoordinate = ((e.pageY - offset.top) - 40) - window.scrollY;
 
-    console.log(xCoordinate);
-    console.log(yCoordinate);  
-
+    // console.log(xCoordinate);
+    // console.log(yCoordinate);  
   }
 
   function selectDropdownOption(e) {
