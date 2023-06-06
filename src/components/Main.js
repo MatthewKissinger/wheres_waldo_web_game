@@ -6,7 +6,7 @@ import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 
 export default function Main(props) {
-    const { grabCoordinateRatio, showTargetingBox, targetDivSize, selectDropdownOption, imageStyle, targetLocation, dropdownLocation } = props;
+    const { grabCoordinateRatio, showTargetingBox, selectDropdownOption } = props;
 
     return (
         <div className='main'>
@@ -14,22 +14,13 @@ export default function Main(props) {
             >
                 <img className="image"
                     onClick={showTargetingBox}
-                    style={{'pointerEvents': `${imageStyle}`}} 
                     src={hoth_battle} 
                     alt='hoth battle scene'
                     onMouseDown={grabCoordinateRatio}
                 ></img>
                 <div className='targetingDiv'
-                    style={{'top': `${targetLocation[0]}`, 
-                            'left': `${targetLocation[1]}`,
-                            'visibility': `${targetLocation[2]}`,
-                            'height': `${targetDivSize}`,
-                            'width': `${targetDivSize}`}}
                 ></div>
                 <div className='dropdown'
-                    style={{'top': `${dropdownLocation[0]}`, 
-                            'left': `${dropdownLocation[1]}`,
-                            'visibility': `${dropdownLocation[2]}`}}
                     onClick={selectDropdownOption}
                 >
                     <li className='dropdown_char1' id='char1'>

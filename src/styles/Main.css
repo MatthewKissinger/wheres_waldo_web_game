@@ -8,13 +8,13 @@
 .image__container {
     position: relative;
     width: 80%;
-    margin: 3rem;
-    border-radius: 12px;
-    border: 2px solid black;
+    margin: 3vw;
+    border-radius: 1vw;
+    border: .2vw solid black;
 }
 
 .image {
-    border-radius: 12px;
+    border-radius: .75vw;
     width: 100%;
     overflow: hidden;
     display: block;
@@ -22,25 +22,26 @@
 
 .targetingDiv {
     position: absolute;
-    border: 3px dashed #FFE81F;
+    border: .2vw dashed #FFE81F;
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
+    height: 5vw;
+    width: 5vw;
     top: 0;
     left: 0;
 }
 
 .dropdown {
+    visibility: visible;
     position: absolute;
     background-color: #FFE81F;
-    border-radius: 5px;
-    padding: 1rem;
+    border-radius: .5vw;
+    padding: .7vw;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    width: 200px;
-    top: 0;
-    left: 0;
+    gap: .2vw;
+    width: 10vw;
+    top: 20vw;
+    left: 20vw;
 }
 
 li {
@@ -49,17 +50,18 @@ li {
     list-style: none;
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: .3vw;
     cursor: pointer;
 }
 
 li > img {
-    height: 40px;
-    width: 40px;
+    height: 2vw;
+    width: 2vw;
     pointer-events: none;
 }
 
 li > p {
+    font-size: .8vw;
     pointer-events: none;
 }
 
