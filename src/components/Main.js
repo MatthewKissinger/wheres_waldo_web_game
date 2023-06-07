@@ -6,7 +6,7 @@ import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 
 export default function Main(props) {
-    const { dropdownSelection, data } = props;
+    const { dropdownSelection, setUserCoords, data } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y:0, visibility: 'hidden'});
@@ -16,6 +16,8 @@ export default function Main(props) {
     function showTargetingBox(e) {
         let x = e.nativeEvent.offsetX;
         let y = e.nativeEvent.offsetY;
+
+        setUserCoords({x: x, y: y});
 
         // y needs to subtract 10% of the height from the value
         // height is 791

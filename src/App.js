@@ -12,22 +12,22 @@ function App() {
   // STATE // 
   const [ data, setData ] = useState(characterData);
 
-  // methods
-  // used to get the coordinates for the character that the user is looking for
-  // function grabCoordinate(e) {
-  //   let x = e.nativeEvent.offsetX;
-  //   let y = e.nativeEvent.offsetY;
+  const [ userCoords, setUserCoords ] = useState({x: 0, y: 0});
 
-  //   let width = e.target.width;
-  //   let height = e.target.height;
-  // }
+  // methods
 
   function dropdownSelection(e) {
     console.log(e.target.id);
 
+    console.log(userCoords);
+
     if (e.target.tagName === 'LI') {
       
     }
+  }
+
+  function charInTarget(x, y) {
+
   }
 
   return (
@@ -36,6 +36,7 @@ function App() {
       <Main
         // grabCoordinate={grabCoordinate}
         dropdownSelection={dropdownSelection}
+        setUserCoords={setUserCoords}
         data={data}
       ></Main>
       <Footer></Footer>
