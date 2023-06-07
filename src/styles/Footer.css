@@ -5,7 +5,7 @@
     color: #FFE81F;
     background-color: rgb(44, 44, 44);
     letter-spacing: 3px;
-    height: 8vh;
+    min-height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;

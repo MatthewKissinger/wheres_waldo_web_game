@@ -3,50 +3,40 @@ import './styles/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
+import { characterData } from './data';
 
-// TODO
-// make the image an absolute width of 1400px
-// then take the ratio of the coordinate clicked divided by the width 
+// TODO 
 
 function App() {
 
   // STATE // 
-
+  const [ data, setData ] = useState(characterData);
 
   // methods
-  function grabCoordinateRatio(e) {
-    // console.log(e.nativeEvent);
+  // used to get the coordinates for the character that the user is looking for
+  // function grabCoordinate(e) {
+  //   let x = e.nativeEvent.offsetX;
+  //   let y = e.nativeEvent.offsetY;
 
-    let img = e.target.getBoundingClientRect();
-    let imgWidth = img.width;
-    let imgHeight = img.height;
+  //   let width = e.target.width;
+  //   let height = e.target.height;
+  // }
 
-    let x = e.nativeEvent.offsetX;
-    let y = e.nativeEvent.offsetY;
-    console.log('img width: ' + imgWidth);
-    console.log('img height: ' + imgHeight);
+  function dropdownSelection(e) {
+    console.log(e.target.id);
 
-    console.log('x coordinate clicked: ' + x);
-    console.log('y coordinate clicked: ' + y);
-
-  }
-
-  // commented out for now
-  function showTargetingBox(e) {
-    // console.log(e.target);
-  }
-
-  function selectDropdownOption(e) {
-    // console.log(e.target);
+    if (e.target.tagName === 'LI') {
+      
+    }
   }
 
   return (
     <div className="App">
       <Header></Header>
       <Main
-        grabCoordinateRatio={grabCoordinateRatio}
-        showTargetingBox={showTargetingBox}
-        selectDropdownOption={selectDropdownOption}
+        // grabCoordinate={grabCoordinate}
+        dropdownSelection={dropdownSelection}
+        data={data}
       ></Main>
       <Footer></Footer>
     </div>
