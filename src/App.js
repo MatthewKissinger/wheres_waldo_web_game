@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import { characterData } from './data';
 
 // TODO 
+// after a selection is made from the dropdown menu, give positive or negative feedback based on the selection and also make the visibility for the targetingBox and dropdown menu 'hidden' regardless of the feedback given
 
 function App() {
 
@@ -17,17 +18,25 @@ function App() {
   // methods
 
   function dropdownSelection(e) {
-    console.log(e.target.id);
-
-    console.log(userCoords);
 
     if (e.target.tagName === 'LI') {
-      
+      let id = e.target.id;
+      let obj = data.find(char => char.id === id);
+
+      if (userCoords.x > obj.x - 30 && userCoords.x < obj.x + 30 && userCoords.y > obj.y - 30 && userCoords.y < obj.y + 30) {
+        const newData = data.map((char) => {
+          if (char.id === id) {
+            return { ...char, found: true };
+          }
+          return char;
+        });
+
+        setData(newData);
+        console.log('correct!');
+      } else {
+        console.log('incorrect');
+      }
     }
-  }
-
-  function charInTarget(x, y) {
-
   }
 
   return (

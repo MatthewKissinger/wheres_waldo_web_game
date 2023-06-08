@@ -8,10 +8,10 @@ const characterData = [
         found: false
     },
     {
-        name: "chewbacca",
+        name: "boba",
         id: "char2",
-        x: 1071,
-        y: 110,
+        x: 597,
+        y: 112,
         found: false
     },
     {
