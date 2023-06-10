@@ -6,25 +6,26 @@ import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, data } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, data } = props;
 
     // State
-    const [ targetLocation, setTargetLocation ] = useState({x: 0, y:0, visibility: 'hidden'});
+    const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
 
-    const [ dropdownLocation, setDropdownLocation ] = useState({x: 0, y:0, visibility: 'hidden'});
+    const [ dropdownLocation, setDropdownLocation ] = useState({x: 0, y: 0});
 
     function showTargetingBox(e) {
         let x = e.nativeEvent.offsetX;
         let y = e.nativeEvent.offsetY;
 
         setUserCoords({x: x, y: y});
+        setTargetVisibility('visible');
 
         // y needs to subtract 10% of the height from the value
         // height is 791
         // x needs to subtract 7% of the width from the value
         // width of image is 1200
-        setTargetLocation({x: (x - 42), y: (y - 40), visibility: 'visible'});
-        setDropdownLocation({x: (x + 70), y: (y - 40), visibility: 'visible'})
+        setTargetLocation({x: (x - 42), y: (y - 40)});
+        setDropdownLocation({x: (x + 70), y: (y - 40)})
     }
 
     return (
@@ -36,10 +37,10 @@ export default function Main(props) {
                     alt='hoth battle scene'
                 ></img>
                 <div className='targetingDiv'
-                    style={{'left': targetLocation.x, 'top': targetLocation.y, 'visibility': targetLocation.visibility}}
+                    style={{'left': targetLocation.x, 'top': targetLocation.y, 'visibility': targetVisibility}}
                 ></div>
                 <div className='dropdown'
-                    style={{'left': dropdownLocation.x, 'top': dropdownLocation.y, 'visibility': dropdownLocation.visibility}}
+                    style={{'left': dropdownLocation.x, 'top': dropdownLocation.y, 'visibility': targetVisibility}}
                     onClick={dropdownSelection}
                 >
                     {!data[0].found && 
