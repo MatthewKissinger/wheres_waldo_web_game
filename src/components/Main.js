@@ -32,6 +32,8 @@ export default function Main(props) {
         <div className='main'>
             <div className='image__container'>
                 <img className="image"
+                    style={{'pointerEvents': `${targetVisibility === 'visible' ? 'none' : 'auto'}`}}
+                    
                     onClick={showTargetingBox}
                     src={hoth_battle} 
                     alt='hoth battle scene'

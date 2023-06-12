@@ -1,0 +1,21 @@
+.char-status-container {
+    background-color: lightgray;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.char-img-container {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid limegreen;
+    overflow: hidden;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}

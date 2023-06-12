@@ -1,14 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
+import CharFoundStatus from './components/CharFoundStatus';
 import Footer from './components/Footer';
 import { characterData } from './data';
 
 // TODO 
+
+// create a component below the header and above the image that displays the character's portraits that the user is searching for.  Initially give the portraits an orange background, when the char's found value is true, change the background color to green
+
 // after a selection is made from the dropdown menu, give positive or negative feedback based on the selection and also make the visibility for the targetingBox and dropdown menu 'hidden' regardless of the feedback given
 
-// refactor the dropdownLocation and targetingBoxLocation states/functions to work off of the userCoords state values -- add the visibility value to the userCoords as well so that multiple state values do not need to be passed down to Main.js
+// mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
 
 function App() {
 
@@ -48,8 +52,10 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
+      <CharFoundStatus
+        data={data}
+      ></CharFoundStatus>
       <Main
-        // grabCoordinate={grabCoordinate}
         dropdownSelection={dropdownSelection}
         setUserCoords={setUserCoords}
         targetVisibility={targetVisibility}
