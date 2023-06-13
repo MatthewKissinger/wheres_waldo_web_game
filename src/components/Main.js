@@ -4,9 +4,10 @@ import "../styles/Main.css"
 import Boba from "../assets/images/Boba-Fett-Portrait.jpg"
 import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
+import SelectionAlert from './SelectionAlert';
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, data } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, data } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
@@ -30,6 +31,9 @@ export default function Main(props) {
 
     return (
         <div className='main'>
+            <SelectionAlert
+                alertMsg={alertMsg}
+            ></SelectionAlert>
             <div className='image__container'>
                 <img className="image"
                     style={{'pointerEvents': `${targetVisibility === 'visible' ? 'none' : 'auto'}`}}

@@ -1,0 +1,17 @@
+.alert-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    background-color: red;
+}
+
+.alert-p {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 4px;
+    font-size: 24px;
+}
+

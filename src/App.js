@@ -23,6 +23,8 @@ function App() {
 
   const [ targetVisibility, setTargetVisibility ] = useState('hidden');
 
+  const [ alertMsg, setAlertMsg ] = useState('none');
+
   // methods
 
   function dropdownSelection(e) {
@@ -40,10 +42,10 @@ function App() {
         });
 
         setData(newData);
-        console.log('correct!');
+        setAlertMsg('correct');
         setTargetVisibility('hidden');
       } else {
-        console.log('incorrect');
+        setAlertMsg('incorrect');
         setTargetVisibility('hidden');
       }
     }
@@ -60,6 +62,7 @@ function App() {
         setUserCoords={setUserCoords}
         targetVisibility={targetVisibility}
         setTargetVisibility={setTargetVisibility}
+        alertMsg={alertMsg}
         data={data}
       ></Main>
       <Footer></Footer>
