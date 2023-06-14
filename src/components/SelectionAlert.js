@@ -1,15 +1,30 @@
-import { useEffect } from 'react';
 import '../styles/SelectionAlert.css';
 
 export default function SelectionAlert(props) {
-    const { alertMsg } = props;
+    const { alertMsg, setAlertMsg } = props;
 
-    // function that displays the alertMsg value in the div only for a few seconds after the alertMsg value changes in a useEffect function
-    // use a timeOut function??
+    function clearAlertBar() {
+        setTimeout(function() {
+            setAlertMsg('none');
+        }, 2000)
+    }
 
     return (
         <div className='alert-container'>
-            <p className='alert-p'>{alertMsg}</p>
+            {  
+                alertMsg !== 'none' &&
+                <div className='alert-p'
+                    style={{'backgroundColor': 
+                    `${alertMsg === 'correct' ? 'limegreen' : 'red'}`,
+                    'opacity': 1
+                }}
+                >{alertMsg}
+                    <p className='.hide'>
+                        {clearAlertBar()}
+                    </p>
+                </div>
+                
+            }
         </div>
     )
 }

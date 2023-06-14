@@ -1,17 +1,25 @@
 .alert-container {
     height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     color: white;
     font-weight: 700;
-    background-color: red;
 }
 
 .alert-p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 4px;
     font-size: 24px;
+    opacity: 0;
+    transition: opacity 2s linear;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
 }
 

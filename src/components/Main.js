@@ -7,7 +7,7 @@ import Greedo from "../assets/images/Greedo-Portrait.jpg"
 import SelectionAlert from './SelectionAlert';
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, data } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, data } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
@@ -33,6 +33,7 @@ export default function Main(props) {
         <div className='main'>
             <SelectionAlert
                 alertMsg={alertMsg}
+                setAlertMsg={setAlertMsg}
             ></SelectionAlert>
             <div className='image__container'>
                 <img className="image"

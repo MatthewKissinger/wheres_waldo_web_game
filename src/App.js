@@ -63,6 +63,7 @@ function App() {
         targetVisibility={targetVisibility}
         setTargetVisibility={setTargetVisibility}
         alertMsg={alertMsg}
+        setAlertMsg={setAlertMsg}
         data={data}
       ></Main>
       <Footer></Footer>
