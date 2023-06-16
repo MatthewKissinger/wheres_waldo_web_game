@@ -8,9 +8,10 @@ import { characterData } from './data';
 
 // TODO 
 
-// create a component below the header and above the image that displays the character's portraits that the user is searching for.  Initially give the portraits an orange background, when the char's found value is true, change the background color to green
+// create a timer that is to be a component Timer.js, it will render inside the Header.js file
 
-// after a selection is made from the dropdown menu, give positive or negative feedback based on the selection and also make the visibility for the targetingBox and dropdown menu 'hidden' regardless of the feedback given
+// create an overlay that has a start button and some instructions on how to play the game
+// after pressing start the timer will begin in the header 
 
 // mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
 
@@ -18,11 +19,9 @@ function App() {
 
   // STATE // 
   const [ data, setData ] = useState(characterData);
-
+  const [ userData, setUserData ] = useState([]);
   const [ userCoords, setUserCoords ] = useState({x: 0, y: 0});
-
   const [ targetVisibility, setTargetVisibility ] = useState('hidden');
-
   const [ alertMsg, setAlertMsg ] = useState('none');
 
   // methods
