@@ -19,7 +19,8 @@ function App() {
 
   // STATE // 
   const [ data, setData ] = useState(characterData);
-  const [ userData, setUserData ] = useState([]);
+  // want user data to have the game start key and the time when finished value
+  const [ userData, setUserData ] = useState({});
   const [ userCoords, setUserCoords ] = useState({x: 0, y: 0});
   const [ targetVisibility, setTargetVisibility ] = useState('hidden');
   const [ alertMsg, setAlertMsg ] = useState('none');
