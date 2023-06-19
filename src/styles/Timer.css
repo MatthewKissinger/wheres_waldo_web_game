@@ -1,4 +1,5 @@
 .timer {
+    /* border: 1px solid red; */
     font-size: 1.5vw;
     font-weight: bold;
     letter-spacing: 5px;
@@ -7,13 +8,12 @@
     justify-content: space-around;
     align-items: center;
     gap: 20px;
+    width: 32vw;
 }
 
-.timer > p {
-    width: 350px;
+.timer > span {
+    /* border: 1px solid blue; */
+    width: 5vw;
+    text-align: center;
 }
 
-.timer-start {
-    width: 100px;
-    cursor: pointer
-}
