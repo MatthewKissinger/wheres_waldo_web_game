@@ -1,0 +1,66 @@
+.start-overlay-bg {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1.5vw;
+    letter-spacing: 2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-overlay-cont {
+    padding: 2vw;
+    background-color: rgba(208, 208, 208, 0.9);
+    height: 35vw;
+    width: 45vw;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.start-overlay-chars {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    height: 35%;
+    width: 100%;
+}
+
+.start-overlay-char1, .start-overlay-char2, .start-overlay-char3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.start-overlay-instructions {
+    line-height: 2.5vw;
+}
+
+.start-overlay-button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5vw;
+    letter-spacing: .2vw;
+    font-weight: bold;
+    width: 40%;
+    height: 20%;
+    border: none;
+    background-color: #FFE81F;
+    color: black;
+    cursor: pointer;
+}
+
+.start-overlay-button:hover {
+    background-color: #e6df9f;
+}
+

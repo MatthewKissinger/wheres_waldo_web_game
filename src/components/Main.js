@@ -5,13 +5,13 @@ import Boba from "../assets/images/Boba-Fett-Portrait.jpg"
 import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 import SelectionAlert from './SelectionAlert';
+import GameStartOverlay from './GameStartOverlay';
 
 export default function Main(props) {
     const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, data } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
-
     const [ dropdownLocation, setDropdownLocation ] = useState({x: 0, y: 0});
 
     function showTargetingBox(e) {
@@ -31,6 +31,8 @@ export default function Main(props) {
 
     return (
         <div className='main'>
+            <GameStartOverlay trigger={true}>
+            </GameStartOverlay>
             <SelectionAlert
                 alertMsg={alertMsg}
                 setAlertMsg={setAlertMsg}

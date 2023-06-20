@@ -8,11 +8,6 @@ import { characterData } from './data';
 
 // TODO 
 
-// create a timer that is to be a component Timer.js, it will render inside the Header.js file
-
-// create an overlay that has a start button and some instructions on how to play the game
-// after pressing start the timer will begin in the header 
-
 // mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
 
 function App() {
