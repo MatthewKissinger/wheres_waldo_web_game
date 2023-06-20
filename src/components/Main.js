@@ -8,7 +8,7 @@ import SelectionAlert from './SelectionAlert';
 import GameStartOverlay from './GameStartOverlay';
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, data } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, data, userData } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
@@ -31,7 +31,9 @@ export default function Main(props) {
 
     return (
         <div className='main'>
-            <GameStartOverlay trigger={true}>
+            <GameStartOverlay             
+                timerStart={timerStart}
+                userData={userData}>
             </GameStartOverlay>
             <SelectionAlert
                 alertMsg={alertMsg}
@@ -39,8 +41,7 @@ export default function Main(props) {
             ></SelectionAlert>
             <div className='image__container'>
                 <img className="image"
-                    style={{'pointerEvents': `${targetVisibility === 'visible' ? 'none' : 'auto'}`}}
-                    
+                    style={{'pointerEvents': `${targetVisibility === 'visible' ? 'none' : 'auto'}`}}     
                     onClick={showTargetingBox}
                     src={hoth_battle} 
                     alt='hoth battle scene'

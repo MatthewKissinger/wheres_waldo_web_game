@@ -6,7 +6,7 @@ export default function SelectionAlert(props) {
     function clearAlertBar() {
         setTimeout(function() {
             setAlertMsg('none');
-        }, 1500)
+        }, 800)
     }
 
     return (
@@ -22,8 +22,7 @@ export default function SelectionAlert(props) {
                     <p className='.hide'>
                         {clearAlertBar()}
                     </p>
-                </div>
-                
+                </div>    
             }
         </div>
     )
