@@ -6,9 +6,10 @@ import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 import SelectionAlert from './SelectionAlert';
 import GameStartOverlay from './GameStartOverlay';
+import GameWonOverlay from './GameWonOverlay';
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, data, userData } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, gameRetry, data, userData } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
@@ -35,6 +36,11 @@ export default function Main(props) {
                 timerStart={timerStart}
                 userData={userData}>
             </GameStartOverlay>
+            <GameWonOverlay
+                gameRetry={gameRetry}
+                userData={userData}
+            >
+            </GameWonOverlay>
             <SelectionAlert
                 alertMsg={alertMsg}
                 setAlertMsg={setAlertMsg}

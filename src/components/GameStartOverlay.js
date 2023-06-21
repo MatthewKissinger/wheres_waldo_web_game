@@ -6,7 +6,7 @@ import Greedo from "../assets/images/Greedo-Portrait.jpg"
 export default function GameStartOverlay(props) {
     const { timerStart, userData } = props;
 
-    return (!userData.gameStart) ? (
+    return (userData.gameOverlayStatus === 0) ? (
         <div className="start-overlay-bg">
             <div className="start-overlay-cont">
                 <div className="start-overlay-chars">
@@ -24,9 +24,11 @@ export default function GameStartOverlay(props) {
                     </div>
                 </div>
                 <p className="start-overlay-instructions"> Find Chewbacca, Boba Fett, and Greedo. The fastest time gets the high score.</p>
-                <button className="start-overlay-button"
-                        onClick={timerStart}
-                >Start Game</button>
+                <button 
+                    className="start-overlay-button"
+                    onClick={timerStart}>
+                    Start Game
+                </button>
             </div>    
         </div>) : "";
     

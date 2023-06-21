@@ -17,9 +17,10 @@ function App() {
   // want user data to have the game start key and the time when finished value
   // also this is where we will store the milliseconds on the timer when the game is completed
   // store the user's name
+  // gameOverlayStatus -- 0 [game start screen] -- 1 [game in progress] -- 2 [game completed]
   const [ userData, setUserData ] = useState(
       {
-        gameStart: false,
+        gameOverlayStatus: 0,
         milliseconds: 0,
         userTime: {
           ms: 0,
@@ -55,7 +56,7 @@ function App() {
       updatedMs++;
       // shallow duplicate of userData for updating ther gameStart trigger
       const newUserData = {...userData};
-      newUserData.gameStart = true;
+      newUserData.gameOverlayStatus = 1;
       setUserData(newUserData);
 
       return setTime({ms:updatedMs, s:updatedS, m:updatedM});
@@ -67,7 +68,7 @@ function App() {
 
   const resetTimer = () => {
       clearInterval(interv);
-      setTime({ms:0, s:0, m:0})
+      setTime({ms: 0, s: 0, m: 0})
   }
 
   function timerStart() {
@@ -104,8 +105,8 @@ function App() {
     // check and see if each character's found property is true
     // if so, then 
           //stop the timer -- DONE
-          //trigger the gameWon overlay
-          //grab the milliseconds from the timer and store in the userData object  
+          //trigger the gameWon overlay -- DONE
+          //grab the milliseconds from the timer and store in the userData object -- DONE
     let result = data.every((char) => {
       if (char.found === true) {
         return true;
@@ -114,12 +115,33 @@ function App() {
     }) 
 
    if (result === true) {
-    console.log('you have beat the game');
     stopTimer();
     
     const totalMs = getTotalMs(time);
-    console.log('totalMs: ' + totalMs);
+    const newUserData = {...userData};
+    newUserData.gameOverlayStatus = 2;
+    newUserData.userTime = {m: time.m, s: time.s, ms: time.ms};
+    newUserData.milliseconds = totalMs;
+    setUserData(newUserData);
+    resetTimer();
    }
+  }
+
+  // triggering this function will reset the page back to the GameStartOverlay and put all of the state back to the default settings
+  function gameRetry() {
+    setData(characterData);
+    setUserData({
+      gameOverlayStatus: 0,
+      milliseconds: 0,
+      userTime: {
+        ms: 0,
+        s: 0,
+        m: 0
+      }
+    });
+    setUserCoords({x: 0, y: 0});
+    setTargetVisibility('hidden');
+    setAlertMsg('none');
   }
 
   function getTotalMs(timeObj) {
@@ -147,6 +169,7 @@ function App() {
         alertMsg={alertMsg}
         setAlertMsg={setAlertMsg}
         timerStart={timerStart}
+        gameRetry={gameRetry}
         userData={userData}
         data={data}
       ></Main>
