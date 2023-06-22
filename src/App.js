@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -8,7 +8,18 @@ import { characterData } from './data';
 
 // TODO 
 
+// prompt user for their name on the GameStartOverlay.js component and store it in the userData object
+
+// reflect the name on the GameWonOverlay.js component
+
 // mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
+
+// create a leaderboard object that displays the top 10 high scores 
+// use the totalMs value for comparisons
+
+// get rid of the Info section in the header
+
+// credit the artist of the photo in the footer section
 
 function App() {
 
@@ -20,6 +31,7 @@ function App() {
   // gameOverlayStatus -- 0 [game start screen] -- 1 [game in progress] -- 2 [game completed]
   const [ userData, setUserData ] = useState(
       {
+        name: '',
         gameOverlayStatus: 0,
         milliseconds: 0,
         userTime: {
@@ -29,6 +41,7 @@ function App() {
         }
       }
     );
+  
 
   const [ userCoords, setUserCoords ] = useState({x: 0, y: 0});
   const [ targetVisibility, setTargetVisibility ] = useState('hidden');
@@ -39,6 +52,10 @@ function App() {
   const [interv, setInterv] = useState();
 
   // methods
+
+  useEffect(() => {
+    console.log(userData.name);
+},[userData.name]);
 
   // timer methods
 
@@ -76,6 +93,8 @@ function App() {
       setInterv(setInterval(runTimer, 10));
   }
 
+  // gameplay methods
+
   function dropdownSelection(e) {
 
     if (e.target.tagName === 'LI') {
@@ -103,10 +122,7 @@ function App() {
 
   function gameWon(data) {
     // check and see if each character's found property is true
-    // if so, then 
-          //stop the timer -- DONE
-          //trigger the gameWon overlay -- DONE
-          //grab the milliseconds from the timer and store in the userData object -- DONE
+    
     let result = data.every((char) => {
       if (char.found === true) {
         return true;
@@ -119,6 +135,7 @@ function App() {
     
     const totalMs = getTotalMs(time);
     const newUserData = {...userData};
+    //trigger the gameWon overlay
     newUserData.gameOverlayStatus = 2;
     newUserData.userTime = {m: time.m, s: time.s, ms: time.ms};
     newUserData.milliseconds = totalMs;
@@ -131,6 +148,7 @@ function App() {
   function gameRetry() {
     setData(characterData);
     setUserData({
+      name: '',
       gameOverlayStatus: 0,
       milliseconds: 0,
       userTime: {
@@ -144,6 +162,7 @@ function App() {
     setAlertMsg('none');
   }
 
+  // used to easily compare user's timescores for the high score leaderboard
   function getTotalMs(timeObj) {
     let totalMs = 0;
     totalMs += timeObj.ms * 10;
@@ -171,6 +190,7 @@ function App() {
         timerStart={timerStart}
         gameRetry={gameRetry}
         userData={userData}
+        setUserData={setUserData}
         data={data}
       ></Main>
       <Footer></Footer>

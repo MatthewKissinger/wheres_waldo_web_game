@@ -4,10 +4,11 @@ import "../styles/GameWonOverlay.css";
 export default function GameWonOverlay(props) {
     const { userData, gameRetry } = props;
 
-    return (userData.gameOverlayStatus === 2) ? 
-        (<div className="won-overlay-bg">
+    return (
+    
+        <div className="won-overlay-bg">
             <div className="won-overlay-cont">
-                <p className="won-overlay-announcement">Congratulations!</p>
+                <p className="won-overlay-announcement">Congratulations! {userData.name}</p>
                 <div className="won-overlay-time-cont">  
                     <p>Your time: </p> 
                     <p>
@@ -21,5 +22,6 @@ export default function GameWonOverlay(props) {
                     Retry
                 </button>
             </div>  
-        </div>) : "";
+        </div>
+        )
 }

@@ -1,12 +1,28 @@
+import { useState } from 'react'
 import "../styles/GameStartOverlay.css"
 import Boba from "../assets/images/Boba-Fett-Portrait.jpg"
 import Chewbacca from "../assets/images/Chewbacca-Portrait.jpg"
 import Greedo from "../assets/images/Greedo-Portrait.jpg"
 
 export default function GameStartOverlay(props) {
-    const { timerStart, userData } = props;
+    const { timerStart, userData, setUserData } = props;
 
-    return (userData.gameOverlayStatus === 0) ? (
+    const [userName, setUserName] = useState('');
+
+    const handleNameChange = (e) => {
+        setUserName(e.target.value);
+        console.log(userName);
+    }
+
+      // passed to the GameStartOverlay.js to get the name from the user
+    function storeUserName(userName) {
+        const newUserData = {...userData};
+        newUserData.name = userName;
+        console.log(newUserData);
+        setUserData(newUserData);
+    }
+    
+    return (
         <div className="start-overlay-bg">
             <div className="start-overlay-cont">
                 <div className="start-overlay-chars">
@@ -24,12 +40,18 @@ export default function GameStartOverlay(props) {
                     </div>
                 </div>
                 <p className="start-overlay-instructions"> Find Chewbacca, Boba Fett, and Greedo. The fastest time gets the high score.</p>
+                <label>Enter a Name: 
+                    <input name="userName"
+                            onChange={handleNameChange}
+                            value={userName}
+                    ></input>
+                </label>
                 <button 
                     className="start-overlay-button"
-                    onClick={timerStart}>
+                    onClick={() => {storeUserName(userName); timerStart();}}>
                     Start Game
                 </button>
             </div>    
-        </div>) : "";
-    
+        </div>
+        ) 
 }

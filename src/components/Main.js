@@ -9,7 +9,7 @@ import GameStartOverlay from './GameStartOverlay';
 import GameWonOverlay from './GameWonOverlay';
 
 export default function Main(props) {
-    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, gameRetry, data, userData } = props;
+    const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, gameRetry, data, userData, setUserData } = props;
 
     // State
     const [ targetLocation, setTargetLocation ] = useState({x: 0, y: 0});
@@ -32,15 +32,19 @@ export default function Main(props) {
 
     return (
         <div className='main'>
-            <GameStartOverlay             
+            {userData.gameOverlayStatus === 0 && <GameStartOverlay             
                 timerStart={timerStart}
-                userData={userData}>
+                userData={userData}
+                setUserData={setUserData}
+            >
             </GameStartOverlay>
-            <GameWonOverlay
+            }
+            {userData.gameOverlayStatus === 2 && <GameWonOverlay
                 gameRetry={gameRetry}
                 userData={userData}
             >
             </GameWonOverlay>
+            }
             <SelectionAlert
                 alertMsg={alertMsg}
                 setAlertMsg={setAlertMsg}
