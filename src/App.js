@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import './styles/App.css';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -8,11 +8,8 @@ import { characterData } from './data';
 
 // TODO 
 
-// prompt user for their name on the GameStartOverlay.js component and store it in the userData object
-
-// reflect the name on the GameWonOverlay.js component
-
 // mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
+// style marker container to look like the dropdown li's
 
 // create a leaderboard object that displays the top 10 high scores 
 // use the totalMs value for comparisons
@@ -52,10 +49,6 @@ function App() {
   const [interv, setInterv] = useState();
 
   // methods
-
-  useEffect(() => {
-    console.log(userData.name);
-},[userData.name]);
 
   // timer methods
 

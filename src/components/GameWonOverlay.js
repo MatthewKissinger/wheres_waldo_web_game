@@ -8,7 +8,8 @@ export default function GameWonOverlay(props) {
     
         <div className="won-overlay-bg">
             <div className="won-overlay-cont">
-                <p className="won-overlay-announcement">Congratulations! {userData.name}</p>
+                <p className="won-overlay-announcement">Congratulations {userData.name}
+                !</p>
                 <div className="won-overlay-time-cont">  
                     <p>Your time: </p> 
                     <p>

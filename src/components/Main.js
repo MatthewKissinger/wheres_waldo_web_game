@@ -83,6 +83,18 @@ export default function Main(props) {
                         </li>
                     }
                 </div>
+                {
+                //markers for when a character has been found
+                data[0].found && 
+                    <div className="marker-cont"
+                        style={{
+                            'left': data[0].x, 'top': data[0].y,
+                            'position': 'absolute'
+                        }}
+                    >
+                        <p>{data[0].name}</p>
+                    </div> 
+                }
             </div>  
         </div>
     )
