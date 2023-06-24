@@ -8,15 +8,8 @@ import { characterData } from './data';
 
 // TODO 
 
-// mark on the image where a found character is - just display the name from the dropdown selection box at the char's coordinates
-// style marker container to look like the dropdown li's
-
 // create a leaderboard object that displays the top 10 high scores 
 // use the totalMs value for comparisons
-
-// get rid of the Info section in the header
-
-// credit the artist of the photo in the footer section
 
 function App() {
 

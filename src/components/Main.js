@@ -88,11 +88,33 @@ export default function Main(props) {
                 data[0].found && 
                     <div className="marker-cont"
                         style={{
-                            'left': data[0].x, 'top': data[0].y,
+                            'left': data[0].x + 10, 'top': data[0].y - 10,
                             'position': 'absolute'
                         }}
                     >
                         <p>{data[0].name}</p>
+                    </div> 
+                }
+                {
+                data[1].found && 
+                    <div className="marker-cont"
+                        style={{
+                            'left': data[1].x + 10, 'top': data[1].y - 10,
+                            'position': 'absolute'
+                        }}
+                    >
+                        <p>{data[1].name}</p>
+                    </div> 
+                }
+                {
+                data[2].found && 
+                    <div className="marker-cont"
+                        style={{
+                            'left': data[2].x + 10, 'top': data[2].y - 10,
+                            'position': 'absolute'
+                        }}
+                    >
+                        <p>{data[2].name}</p>
                     </div> 
                 }
             </div>  
