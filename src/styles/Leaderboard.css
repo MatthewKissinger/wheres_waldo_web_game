@@ -1,0 +1,21 @@
+.leaderboard-cont {
+    padding: 1.5vw;
+    background-color: rgba(208, 208, 208, 0.9);
+    height: 35vw;
+    width: 20vw;
+    margin-right: 5vw;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leaderboard-title {
+    text-decoration: underline;
+}
+
+.leaderboard-user-info {
+    display: flex;
+    gap: .5vw;
+}

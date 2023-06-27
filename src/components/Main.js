@@ -8,6 +8,7 @@ import SelectionAlert from './SelectionAlert';
 import GameStartOverlay from './GameStartOverlay';
 import GameWonOverlay from './GameWonOverlay';
 
+
 export default function Main(props) {
     const { dropdownSelection, setUserCoords, targetVisibility, setTargetVisibility, alertMsg, setAlertMsg, timerStart, gameRetry, data, userData, setUserData } = props;
 
@@ -32,23 +33,25 @@ export default function Main(props) {
 
     return (
         <div className='main'>
-            {userData.gameOverlayStatus === 0 && <GameStartOverlay             
-                timerStart={timerStart}
-                userData={userData}
-                setUserData={setUserData}
-            >
-            </GameStartOverlay>
+            {
+                userData.gameOverlayStatus === 0 && 
+                <GameStartOverlay             
+                    timerStart={timerStart}
+                    userData={userData}
+                    setUserData={setUserData}>
+                </GameStartOverlay>
             }
-            {userData.gameOverlayStatus === 2 && <GameWonOverlay
-                gameRetry={gameRetry}
-                userData={userData}
-            >
-            </GameWonOverlay>
+            {
+                userData.gameOverlayStatus === 2 && 
+                <GameWonOverlay
+                    gameRetry={gameRetry}
+                    userData={userData}>
+                </GameWonOverlay>
             }
             <SelectionAlert
                 alertMsg={alertMsg}
-                setAlertMsg={setAlertMsg}
-            ></SelectionAlert>
+                setAlertMsg={setAlertMsg}>             
+            </SelectionAlert>
             <div className='image__container'>
                 <img className="image"
                     style={{'pointerEvents': `${targetVisibility === 'visible' ? 'none' : 'auto'}`}}     

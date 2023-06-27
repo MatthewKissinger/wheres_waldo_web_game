@@ -10,14 +10,16 @@ import { characterData } from './data';
 
 // create a leaderboard object that displays the top 10 high scores 
 // use the totalMs value for comparisons
+// 1) style similarly to the GameWonOverlay.js -- DONE
+// 2) create a mock leaderboard
+// 3) create a function to compare time values with the new score
+// 4) create a database in firebase to hold the leaderboard data
 
 function App() {
 
   // STATE // 
   const [ data, setData ] = useState(characterData);
-  // want user data to have the game start key and the time when finished value
-  // also this is where we will store the milliseconds on the timer when the game is completed
-  // store the user's name
+ 
   // gameOverlayStatus -- 0 [game start screen] -- 1 [game in progress] -- 2 [game completed]
   const [ userData, setUserData ] = useState(
       {
@@ -108,7 +110,6 @@ function App() {
 
   function gameWon(data) {
     // check and see if each character's found property is true
-    
     let result = data.every((char) => {
       if (char.found === true) {
         return true;

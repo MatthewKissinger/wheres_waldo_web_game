@@ -1,4 +1,5 @@
 import "../styles/GameWonOverlay.css";
+import Leaderboard from './Leaderboard';
 
 
 export default function GameWonOverlay(props) {
@@ -7,6 +8,9 @@ export default function GameWonOverlay(props) {
     return (
     
         <div className="won-overlay-bg">
+            <Leaderboard>
+                
+            </Leaderboard>
             <div className="won-overlay-cont">
                 <p className="won-overlay-announcement">Congratulations {userData.name}
                 !</p>
