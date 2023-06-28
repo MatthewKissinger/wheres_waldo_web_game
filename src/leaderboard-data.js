@@ -12,7 +12,7 @@ const leaderboardData = [
         milliseconds: 6000
     },
     {
-        name: "Poe",
+        name: "Han Solo",
         id: "2",
         userTime: {
             ms: 0,
@@ -22,7 +22,7 @@ const leaderboardData = [
         milliseconds: 7000
     },
     {
-        name: "Poe",
+        name: "Leia",
         id: "3",
         userTime: {
             ms: 50,
@@ -32,7 +32,7 @@ const leaderboardData = [
         milliseconds: 7500
     },
     {
-        name: "Poe",
+        name: "Luke",
         id: "4",
         userTime: {
             ms: 0,
@@ -42,7 +42,7 @@ const leaderboardData = [
         milliseconds: 8000
     },
     {
-        name: "Poe",
+        name: "Obi-wan",
         id: "5",
         userTime: {
             ms: 0,
@@ -52,7 +52,7 @@ const leaderboardData = [
         milliseconds: 9000
     },
     {
-        name: "Poe",
+        name: "Yoda",
         id: "6",
         userTime: {
             ms: 0,
@@ -62,7 +62,7 @@ const leaderboardData = [
         milliseconds: 10000
     },
     {
-        name: "Poe",
+        name: "Grogu",
         id: "7",
         userTime: {
             ms: 0,
@@ -72,7 +72,7 @@ const leaderboardData = [
         milliseconds: 11000
     },
     {
-        name: "Poe",
+        name: "Finn",
         id: "8",
         userTime: {
             ms: 0,
@@ -82,7 +82,7 @@ const leaderboardData = [
         milliseconds: 12000
     },
     {
-        name: "Poe",
+        name: "Revan",
         id: "9",
         userTime: {
             ms: 0,
@@ -92,7 +92,7 @@ const leaderboardData = [
         milliseconds: 13000
     },
     {
-        name: "Poe",
+        name: "Mace",
         id: "10",
         userTime: {
             ms: 0,

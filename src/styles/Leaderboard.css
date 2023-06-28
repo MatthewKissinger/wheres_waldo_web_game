@@ -1,4 +1,5 @@
 .leaderboard-cont {
+    font-size: 1vw;
     padding: 1.5vw;
     background-color: rgba(208, 208, 208, 0.9);
     height: 35vw;
@@ -13,9 +14,17 @@
 
 .leaderboard-title {
     text-decoration: underline;
+    font-size: 1.5vw;
 }
 
 .leaderboard-user-info {
+    width: 100%;
     display: flex;
     gap: .5vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leaderboard-rank {
+    align-self: flex-start;
 }

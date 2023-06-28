@@ -12,6 +12,11 @@ const topTen = leaderboardData.map((user) => {
         <div className="leaderboard-user-info">
             <p className="leaderboard-rank">{index + 1}</p>
             <p>{user.name}</p>
+            <p>
+                {(user.userTime.m >= 10) ? user.userTime.m : "0" + user.userTime.m}:
+                {(user.userTime.s >= 10) ? user.userTime.s : "0" + user.userTime.s}:
+                {(user.userTime.ms >= 10) ? user.userTime.ms : "0" + user.userTime.ms}
+            </p>  
         </div>
         
     )

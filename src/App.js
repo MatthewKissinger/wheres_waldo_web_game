@@ -11,8 +11,9 @@ import { characterData } from './data';
 // create a leaderboard object that displays the top 10 high scores 
 // use the totalMs value for comparisons
 // 1) style similarly to the GameWonOverlay.js -- DONE
-// 2) create a mock leaderboard
+// 2) create a mock leaderboard -- DONE
 // 3) create a function to compare time values with the new score
+//   -- if time value is lower than the last value in the array, add it to the array and remove the last value, then sort the array based on milliseconds
 // 4) create a database in firebase to hold the leaderboard data
 
 function App() {
