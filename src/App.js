@@ -5,6 +5,7 @@ import Main from './components/Main';
 import CharFoundStatus from './components/CharFoundStatus';
 import Footer from './components/Footer';
 import { characterData } from './data';
+import { leaderboardData } from './leaderboard-data';
 
 // TODO 
 
@@ -128,6 +129,7 @@ function App() {
     newUserData.userTime = {m: time.m, s: time.s, ms: time.ms};
     newUserData.milliseconds = totalMs;
     setUserData(newUserData);
+    testForHighScore(newUserData);
     resetTimer();
    }
   }
@@ -158,6 +160,18 @@ function App() {
     totalMs += timeObj.m * 60000;
 
     return totalMs;
+  }
+
+  function testForHighScore(userData) {
+    console.log(userData);
+    console.log(leaderboardData);
+    if (userData.milliseconds < leaderboardData[9].milliseconds) {
+      console.log('you made the leaderboard');
+      leaderboardData[9] = userData;
+      console.log(leaderboardData);
+      // sort the leaderboardData array by millisecond value, lowest first
+    }
+
   }
 
   return (

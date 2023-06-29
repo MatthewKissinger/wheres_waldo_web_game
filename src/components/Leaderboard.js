@@ -1,10 +1,6 @@
 import "../styles/Leaderboard.css"
 import { leaderboardData } from "../leaderboard-data"
 
-// import and map over the leaderboard data to output the top ten scores
-// console.log(leaderboardData);
-// add in the time formula for the stopwatch
-
 const topTen = leaderboardData.map((user) => {
     let id = user.id;
     let index = leaderboardData.findIndex((user => user.id === id));
