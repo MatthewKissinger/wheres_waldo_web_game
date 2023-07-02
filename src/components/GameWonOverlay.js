@@ -3,13 +3,14 @@ import Leaderboard from './Leaderboard';
 
 
 export default function GameWonOverlay(props) {
-    const { userData, gameRetry } = props;
+    const { userData, leaderboard, gameRetry } = props;
 
     return (
     
         <div className="won-overlay-bg">
-            <Leaderboard>
-                
+            <Leaderboard
+                leaderboard={leaderboard}
+            >  
             </Leaderboard>
             <div className="won-overlay-cont">
                 <p className="won-overlay-announcement">Congratulations {userData.name}

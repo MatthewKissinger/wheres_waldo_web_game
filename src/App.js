@@ -8,14 +8,11 @@ import { characterData } from './data';
 import { leaderboardData } from './leaderboard-data';
 
 // TODO 
-
 // create a leaderboard object that displays the top 10 high scores 
 // use the totalMs value for comparisons
-// 1) style similarly to the GameWonOverlay.js -- DONE
-// 2) create a mock leaderboard -- DONE
-// 3) create a function to compare time values with the new score
-//   -- if time value is lower than the last value in the array, add it to the array and remove the last value, then sort the array based on milliseconds
-// 4) create a database in firebase to hold the leaderboard data
+// 1) give the userData state a unique id value
+// 1) set the leaderboard state with the new leaderboard that is sorted if the user qualifies for the top ten
+// 2) create a database in firebase to hold the leaderboard data
 
 function App() {
 
@@ -35,7 +32,8 @@ function App() {
         }
       }
     );
-  
+
+  const [ leaderboard, setLeaderboard] = useState(leaderboardData);
 
   const [ userCoords, setUserCoords ] = useState({x: 0, y: 0});
   const [ targetVisibility, setTargetVisibility ] = useState('hidden');
@@ -163,15 +161,16 @@ function App() {
   }
 
   function testForHighScore(userData) {
-    console.log(userData);
-    console.log(leaderboardData);
-    if (userData.milliseconds < leaderboardData[9].milliseconds) {
+    // console.log(userData);
+    // console.log(leaderboard);
+    if (userData.milliseconds < leaderboard[9].milliseconds) {
       console.log('you made the leaderboard');
-      leaderboardData[9] = userData;
-      console.log(leaderboardData);
+      const newLeaderboard = {...leaderboard};
+      newLeaderboard[9] = userData;
+      console.log(newLeaderboard);
+      // setLeaderboard(newLeaderboard);
       // sort the leaderboardData array by millisecond value, lowest first
     }
-
   }
 
   return (
@@ -194,6 +193,7 @@ function App() {
         userData={userData}
         setUserData={setUserData}
         data={data}
+        leaderboard={leaderboard}
       ></Main>
       <Footer></Footer>
     </div>
