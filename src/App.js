@@ -6,6 +6,7 @@ import CharFoundStatus from './components/CharFoundStatus';
 import Footer from './components/Footer';
 import { characterData } from './data';
 import { leaderboardData } from './leaderboard-data';
+import uniqid from 'uniqid';
 
 // TODO 
 // create a leaderboard object that displays the top 10 high scores 
@@ -22,6 +23,7 @@ function App() {
   // gameOverlayStatus -- 0 [game start screen] -- 1 [game in progress] -- 2 [game completed]
   const [ userData, setUserData ] = useState(
       {
+        id: uniqid(),
         name: '',
         gameOverlayStatus: 0,
         milliseconds: 0,
@@ -161,15 +163,13 @@ function App() {
   }
 
   function testForHighScore(userData) {
-    // console.log(userData);
-    // console.log(leaderboard);
     if (userData.milliseconds < leaderboard[9].milliseconds) {
-      console.log('you made the leaderboard');
-      const newLeaderboard = {...leaderboard};
+      const newLeaderboard = [...leaderboard];
       newLeaderboard[9] = userData;
       console.log(newLeaderboard);
-      // setLeaderboard(newLeaderboard);
       // sort the leaderboardData array by millisecond value, lowest first
+      setLeaderboard(newLeaderboard);
+      
     }
   }
 
