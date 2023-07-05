@@ -7,7 +7,7 @@ export default function Leaderboard(props) {
         let id = user.id;
         let index = leaderboard.findIndex((user => user.id === id));
         return (
-            <div className="leaderboard-user-info">
+            <div className="leaderboard-user-info" key={index}>
                 <p className="leaderboard-rank">{index + 1}</p>
                 <p>{user.name}</p>
                 <p>

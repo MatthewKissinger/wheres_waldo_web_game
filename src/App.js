@@ -9,7 +9,8 @@ import { leaderboardData } from './leaderboard-data';
 import uniqid from 'uniqid';
 
 // TODO 
-// 1) give each leaderboard object a unique key prop
+// 1) connect the leaderboardData to an online database
+// -- use firebase? -- first research free online alternatives or create my own database from scratch
 
 function App() {
 
@@ -162,11 +163,9 @@ function App() {
     if (userData.milliseconds < leaderboard[9].milliseconds) {
       const newLeaderboard = [...leaderboard];
       newLeaderboard[9] = userData;
-      console.log(newLeaderboard);
       let sortedHighScores = newLeaderboard.sort((a, b) => {
         return a.milliseconds - b.milliseconds;
       });
-      console.log(sortedHighScores);
       // sort the leaderboardData array by millisecond value, lowest first
       setLeaderboard(sortedHighScores);
       
