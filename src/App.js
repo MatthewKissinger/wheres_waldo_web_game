@@ -9,11 +9,7 @@ import { leaderboardData } from './leaderboard-data';
 import uniqid from 'uniqid';
 
 // TODO 
-// create a leaderboard object that displays the top 10 high scores 
-// use the totalMs value for comparisons
-// 1) give the userData state a unique id value
-// 1) set the leaderboard state with the new leaderboard that is sorted if the user qualifies for the top ten
-// 2) create a database in firebase to hold the leaderboard data
+// 1) give each leaderboard object a unique key prop
 
 function App() {
 
@@ -167,8 +163,12 @@ function App() {
       const newLeaderboard = [...leaderboard];
       newLeaderboard[9] = userData;
       console.log(newLeaderboard);
+      let sortedHighScores = newLeaderboard.sort((a, b) => {
+        return a.milliseconds - b.milliseconds;
+      });
+      console.log(sortedHighScores);
       // sort the leaderboardData array by millisecond value, lowest first
-      setLeaderboard(newLeaderboard);
+      setLeaderboard(sortedHighScores);
       
     }
   }
