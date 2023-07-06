@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/wheres_waldo_web_game/static/css/main.9176ea78.css",
+    "main.js": "/wheres_waldo_web_game/static/js/main.9c312192.js",
+    "static/js/787.32660ac2.chunk.js": "/wheres_waldo_web_game/static/js/787.32660ac2.chunk.js",
+    "static/media/Boba-Fett-Portrait.jpg": "/wheres_waldo_web_game/static/media/Boba-Fett-Portrait.44921b017b024d378a3f.jpg",
+    "static/media/Chewbacca-Portrait.jpg": "/wheres_waldo_web_game/static/media/Chewbacca-Portrait.d6e21ef5cf8919ab2471.jpg",
+    "static/media/wheres_wookie_ryan_hill.jpeg": "/wheres_waldo_web_game/static/media/wheres_wookie_ryan_hill.4987e7ae79595a4467a6.jpeg",
+    "static/media/Greedo-Portrait.jpg": "/wheres_waldo_web_game/static/media/Greedo-Portrait.f0cef602bf80c5100783.jpg",
+    "index.html": "/wheres_waldo_web_game/index.html",
+    "main.9176ea78.css.map": "/wheres_waldo_web_game/static/css/main.9176ea78.css.map",
+    "main.9c312192.js.map": "/wheres_waldo_web_game/static/js/main.9c312192.js.map",
+    "787.32660ac2.chunk.js.map": "/wheres_waldo_web_game/static/js/787.32660ac2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9176ea78.css",
+    "static/js/main.9c312192.js"
+  ]
+}
