@@ -8,9 +8,11 @@ import { characterData } from './data';
 import { leaderboardData } from './leaderboard-data';
 import uniqid from 'uniqid';
 
-// TODO 
+// TODO -- Push to Github
 // 1) connect the leaderboardData to an online database
 // -- use firebase? -- first research free online alternatives or create my own database from scratch
+// 2) come back after learning nodeJS and a database, avoid firebase
+
 
 function App() {
 
